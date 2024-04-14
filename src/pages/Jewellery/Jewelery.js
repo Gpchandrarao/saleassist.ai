@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MdOutlineShoppingBag } from "react-icons/md";
+import axios from "axios";
 
 import "./Jewelery.css";
 
@@ -8,8 +9,8 @@ const Jewelery = () => {
 
   const fetchingBagData = async () => {
     const bagsUrl = "https://fakestoreapi.com/products";
-    const response = await fetch(bagsUrl);
-    const data = await response.json();
+    const response = await axios.get(bagsUrl);
+    const data = response.data;
     console.log(data);
     setJeweleryData(data);
   };
